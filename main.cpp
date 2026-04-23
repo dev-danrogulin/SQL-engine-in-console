@@ -55,7 +55,7 @@ int main() {
         Condition condition{"age", CompareOp::Greater, 18};
         std::vector<Row> filtered = filterRows(users, condition);
 
-        std:cout << "\nUsers with age > 18:\n";
+        std::cout << "\nUsers with age > 18:\n";
         printRows(users, filtered);
     }
     catch (const std::exception& e) {

@@ -7,7 +7,7 @@
 // convert value to string for console output
 std::string valueToString(const Value& value) {
     if (std::holds_alternative<int>(value)) {
-        return std::to_string(std::get<Int>(value));
+        return std::to_string(std::get<int>(value));
     }
 
     return std::get<std::string>(value);
@@ -18,7 +18,7 @@ void printTable(const Table& table) {
     const auto& rows = table.getRows();
 
     // print header
-    for (size_t i = 0; i < columns.size(); ++i) {
+    for (const auto& column : columns) {
         std::cout << std::setw(12) << column.name;
     }
     std::cout << '\n';

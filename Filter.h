@@ -16,4 +16,4 @@ struct Condition {
     Value value;
 };
 
-std::vector<Row> filterRows(const Table& table, const Condition& condition)
+std::vector<Row> filterRows(const Table& table, const Condition& condition);

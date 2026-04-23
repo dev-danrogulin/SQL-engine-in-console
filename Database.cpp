@@ -27,7 +27,7 @@ Table& Database::getTable(const std::string& name) {
 // function, return constant link to Table so called can read it
 const Table& Database::getTable(const std::string& name) const {
     auto it = tables_.find(name);
-    if (it == tables.end()) {
+    if (it == tables_.end()) {
         throw std::runtime_error("Table not found: " + name);
     }
 
