@@ -1,6 +1,23 @@
 #include "Database.h"
 #include <iostream>
 #include "Printer.h"
+#include "Filter.h"
+
+void printRows(const Table& table, const std::vector<Row>& rows) {
+    const auto& columns = table.getColumns();
+
+    for (const auto& column : columns) {
+        std::cout << column.name << '\t';
+    }
+    std::cout << '\n';
+
+    for (const auto& row : rows) {
+        for (const auto& value : row.values) {
+            std::cout << valueToString(value) << '\t';
+        }
+        std::cout << '\n';
+    }
+}
 
 int main() {
     try {
@@ -31,8 +48,15 @@ int main() {
             {3, std::string("Charlie"), 31}
         });
 
-        // 4. Print table
+        // 4. Filter rows
+        std::cout << "All users:\n";
         printTable(users);
+
+        Condition condition{"age", CompareOp::Greater, 18};
+        std::vector<Row> filtered = filterRows(users, condition);
+
+        std:cout << "\nUsers with age > 18:\n";
+        printRows(users, filtered);
     }
     catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << '\n';
