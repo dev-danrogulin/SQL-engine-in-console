@@ -110,11 +110,3 @@ cmake --build build
 The program prints:
 - full `users` table;
 - filtered rows where `age > 18`.
-
-## Status
-
-Educational in-memory mini database, good base for next steps:
-- update/delete operations;
-- more data types;
-- SQL-like command parser;
-- save/load data from files.
